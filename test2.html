@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Translation with Popup</title>
+    <style>
+        /* Style for the popup */
+        .popup {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 1;
+        }
+        
+        /* Style for the clickable word */
+        .clickable-word {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>Click on a word to see its translation:</p>
+    
+    <!-- Add a popup element -->
+    <div class="popup" id="translationPopup"></div>
+    
+    <script>
+        // Define the dictionary of words and translations
+        const dictionary = {
+            "hello": "Hola",
+            "goodbye": "Adiós",
+            // Add more words and translations here
+        };
+
+        // Define a function to show translations
+        function showTranslation(word, event) {
+            // Check if the word exists in the dictionary
+            if (dictionary[word]) {
+                const popup = document.getElementById('translationPopup');
+                popup.textContent = dictionary[word];
+                popup.style.display = 'block';
+                popup.style.left = event.clientX + 'px';
+                popup.style.top = (event.clientY + 10) + 'px';
+            }
+        }
+        
+        // Attach click event listeners to words
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('clickable-word')) {
+                const clickedWord = e.target.textContent.toLowerCase();
+                showTranslation(clickedWord, e);
+            }
+        });
+        
+        // Hide the popup when clicking outside of it
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('translationPopup');
+            if (e.target !== popup && !e.target.classList.contains('clickable-word')) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+
+    <p>This is a <span class="clickable-word">hello</span> world!</p>
+    <p>Try clicking on the word "hello" above to see the translation.</p>
+</body>
+</html>
