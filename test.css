@@ -1,0 +1,44 @@
+/* Basic styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+h1 {
+    color: #333;
+}
+
+/* Audio player styling */
+audio {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* Recording button styling */
+#recordButton {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#recordButton:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for the recorded audio (hidden by default) */
+#recordedAudio {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    display: none;
+}
